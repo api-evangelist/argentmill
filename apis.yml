@@ -1,23 +1,60 @@
 aid: argentmill
+
 name: Argentmill
-description: 'Argentmill is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: 'Argentmill is listed on equity and business directories such as EquityZen, D&B, and Bloomberg as a corporate entity. Limited public information is available; it appears to be a financial or investment related company. No dedicated corporate website could be identified, and attempts to access the listed EquityZen page returned a 403. This stub remains pending further verification.'
+
 url: https://raw.githubusercontent.com/api-evangelist/argentmill/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-26 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-26'
+
 modified: '2026-09-26'
+
 tags:
 - Company
-apis: []
+- Finance
+- Investment
+- Directory
+- Stub
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
-- type: Website
-  url: https://equityzen.com/company/argentmill
+
+  - type: Hosts
+    url: hosts/argentmill-hosts.yml
+  - type: Vendors
+    url: vendors/argentmill-vendors.yml
+  - type: DomainSecurity
+    url: security/argentmill-domain-security.yml
+  - type: Website
+    url: https://equityzen.com/company/argentmill
+
+apis: []
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: Venue listing on EquityZen returns 403 and provides no company website or API docs.
+  evidence:
+  - url: https://equityzen.com/company/argentmill
+    status: 403
+  checked: '2026-09-26'
+x-enrichment:
+  date: '2026-09-26'
+  status: minimal
+  artifacts_added: 2
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local
